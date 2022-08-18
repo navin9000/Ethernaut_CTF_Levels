@@ -2,6 +2,14 @@
 pragma solidity ^0.8.7;
 
 
+//phishing Attack is like making the owner of the contract to call the malicious contract without knowing him.
+//tx.origin is a global variable mostly used for authorizing the contract deployed by him.
+//ex:
+//           Alice            --->           contract A           ----->   contract B 
+//           tx.origin=Alice               tx.origin=Alice                tx.Orgin=Alice
+
+//Alice called the contract A so to the end of the contract he is the tx.origin
+
 contract Wallet{
     address owner;
 
